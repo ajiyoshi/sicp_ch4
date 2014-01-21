@@ -1,5 +1,6 @@
 (define (error . msg)
-  (print msg))
+  (print msg)
+  (raise msg))
 
 (define (my-eval exp env)
   (cond ((self-evaluating? exp) exp)
@@ -265,7 +266,7 @@
       (cond ((null? vars)
              (add-binding-to-frame! var val frame))
             ((eq? var (car vars))
-             (set-cdr! vals val))
+             (set-car! vals val))
             (else (scan (cdr vars) (cdr vals)))))
     (scan (frame-variables frame)
           (frame-values frame))))
