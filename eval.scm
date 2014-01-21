@@ -244,7 +244,6 @@
               (frame-values frame)))))
   (env-loop env))
 
-
 (define (set-variable-value! var val env)
   (define (env-loop env)
     (define (scan vars vals)
@@ -259,7 +258,6 @@
         (scan (frame-variables frame)
               (frame-values frame)))))
   (env-loop env))
-
 
 (define (define-variable! var val env)
   (let ((frame (first-frame env)))
@@ -316,7 +314,7 @@
 (define (driver-loop)
   (prompt-for-input input-prompt)
   (let ((input (read)))
-    (let ((output (my-eval input the-global-environmet)))
+    (let ((output (my-eval input the-global-environment)))
       (announce-output output-prompt)
       (user-print output)))
   (driver-loop))
@@ -335,5 +333,5 @@
                    '<procedure-env>))
     (display obj)))
 
-(define the-global-environmet (setup-environmet))
+(define the-global-environment (setup-environmet))
 

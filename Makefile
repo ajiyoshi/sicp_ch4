@@ -2,4 +2,4 @@
 all: test
 
 test:
-	gosh eval.scm
+	gosh -I . t/test_*.scm

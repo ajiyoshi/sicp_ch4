@@ -1,2 +1,2 @@
-(load "./eval.scm")
+(load "eval")
 (driver-loop)
