@@ -21,7 +21,7 @@
   (test-section section)
 
   (test* "left to right"
-         27
+         42
          (my-eval (read-from-string expr) the-global-environment))
 
   'done)

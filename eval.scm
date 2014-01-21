@@ -39,8 +39,9 @@
 (define (list-of-values exps env)
   (if (no-operands? exps)
     '()
-    (let ((head (my-eval (first-operand exps) env)))
-      (cons head (list-of-values (rest-operands exps) env)))))
+    (let ((tail (list-of-values (rest-operands exps) env)))
+      (cons (my-eval (first-operand exps) env)
+            tail))))
 
 (define (eval-if exp env)
   (if (true? (my-eval (if-predicate exp) env))
